@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bikerace — Photoreal Edition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bikerace Preview">
+<meta name="theme-color" content="#0d1224">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="src/render/ui.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three/three.module.js",
+    "three/addons/": "./vendor/three/addons/"
+  }
+}
+</script>
+</head>
+<body>
+<canvas id="game"></canvas>
+<div id="fx"></div>
+<div id="stage"><div id="ui"></div></div>
+<div id="gfx-bar" aria-label="Graphics Preview Controls">
+  <span class="gfx-tag">PHOTOREAL PREVIEW</span>
+  <button type="button" class="gfx-btn" id="gfx-weather" title="Cycle Weather &amp; Time of Day (Key: O)">WEATHER: SUNNY</button>
+  <button type="button" class="gfx-btn" id="gfx-quality" title="Cycle Graphics Quality (Key: U)">QUALITY: HIGH</button>
+  <button type="button" class="gfx-btn" id="gfx-compare" title="Compare Photoreal vs Original Look (Key: I)">LOOK: PHOTOREAL</button>
+  <span class="gfx-fps" id="gfx-fps">-- FPS</span>
+</div>
+<div id="boot"><div class="bootbox"><div class="bootlogo">BIKERACE</div><div id="bootmsg">Loading photoreal engine...</div></div></div>
+<div id="rotate"><div class="rotbox"><div class="phone"></div><div class="rt">ROTATE YOUR PHONE</div><div class="rs">Bikerace is played sideways. Turn your phone to landscape to keep racing.</div></div></div>
+<div id="errbox" hidden></div>
+<script src="src/ns.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/tracks.js"></script>
+<script src="src/road.js"></script>
+<script src="src/racer.js"></script>
+<script src="src/combat.js"></script>
+<script src="src/player.js"></script>
+<script src="src/traffic.js"></script>
+<script src="src/rivals.js"></script>
+<script src="src/hud.js"></script>
+<script src="src/menus.js"></script>
+<script src="src/game.js"></script>
+<script type="module" src="src/render/main.js"></script>
+</body>
+</html>
