@@ -12,12 +12,35 @@
 
   TB.prizes = [600, 400, 250, 120, 60, 0, 0, 0, 0];
 
-  // Difficulty levels. pace = rival speed, hp/dmg = rival toughness and hit strength, skill = added to every rival's riding skill (0..1, see TB.rivals), prize = prize money multiplier.
-  // Each TRACK also has its own rivals (track.diff = their speed, track.rival = skill / aggression / toughness), and the two multiply: Legend on the coast is the hardest field.
+  // Difficulty levels. pace/accel = rival speed & launch, corner/handle = cornering & hairpin speed/grip, hp/dmg = rival toughness and hit strength,
+  // skill/skillFloor = riding skill, aggr/atkRate/kickRate/atkCd = hunting & combat tempo, block/guardCd/counter/packBlock = defense & counter-attacks,
+  // fallK/slipK = mistake & crash frequency, recover/respawnSp = crash recovery speed, catchup/boostCap/leadEase/packSpread/diffLift = pack pressure, prize = prize multiplier.
+  // Each TRACK also has its own rivals (track.diff = their speed, track.rival = skill / aggression / toughness), and the two combine: Legend on the coast is the hardest field.
   TB.levels = [
-    { name: 'Rookie', pace: 1.00, hp: 1.0, dmg: 0.8, skill: 0, prize: 1 },
-    { name: 'Pro', pace: 1.09, hp: 1.25, dmg: 1.2, skill: 0.1, prize: 2.5 },
-    { name: 'Legend', pace: 1.2, hp: 1.5, dmg: 1.4, skill: 0.2, prize: 5 }
+    {
+      name: 'Rookie', pace: 1.00, accel: 1.00, hp: 1.00, dmg: 0.80, skill: 0.00, skillFloor: 0.20,
+      aggr: 1.00, atkRate: 1.00, kickRate: 0.30, atkCd: 1.00, maxHunt: 1,
+      corner: 1.00, handle: 1.00, fallK: 1.00, slipK: 1.00,
+      recover: 1.00, respawnSp: 0.16, catchup: 1.00, boostCap: 0.15, chaseDist: 7000, leadEase: 0.13,
+      packSpread: 1.00, diffLift: 0.00, dodge: 0.00,
+      block: 0.00, guardCd: 0.00, counter: 0.00, packBlock: 0.00, truce: 2.0, prize: 1
+    },
+    {
+      name: 'Pro', pace: 1.20, accel: 1.55, hp: 1.45, dmg: 1.15, skill: 0.28, skillFloor: 0.65,
+      aggr: 1.50, atkRate: 2.20, kickRate: 0.45, atkCd: 0.78, maxHunt: 2,
+      corner: 1.28, handle: 1.24, fallK: 0.35, slipK: 0.28,
+      recover: 1.70, respawnSp: 0.42, catchup: 1.60, boostCap: 0.24, chaseDist: 4500, leadEase: 0.055,
+      packSpread: 0.68, diffLift: 0.35, dodge: 0.65,
+      block: 0.20, guardCd: 0.25, counter: 0.45, packBlock: 0.45, truce: 1.8, prize: 2.5
+    },
+    {
+      name: 'Legend', pace: 1.36, accel: 2.25, hp: 2.15, dmg: 1.42, skill: 0.50, skillFloor: 0.90,
+      aggr: 2.15, atkRate: 3.80, kickRate: 0.56, atkCd: 0.60, maxHunt: 2,
+      corner: 1.55, handle: 1.50, fallK: 0.06, slipK: 0.04,
+      recover: 2.60, respawnSp: 0.60, catchup: 2.25, boostCap: 0.34, chaseDist: 2800, leadEase: 0.012,
+      packSpread: 0.42, diffLift: 0.65, dodge: 1.00,
+      block: 0.44, guardCd: 0.45, counter: 0.85, packBlock: 0.85, truce: 1.6, prize: 5
+    }
   ];
 
   TB.roster = [
